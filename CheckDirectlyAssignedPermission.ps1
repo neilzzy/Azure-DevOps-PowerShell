@@ -137,14 +137,11 @@ param (
         Read = 1
         Contribute = 2
         Delete = 4
-        DELETE = 8
-        ManagePermissions = 16
-        WORK_ITEM_WRITE = 32
-        MANAGE_TEST_PLANS = 64
-        MANAGE_TEST_SUITES = 128
+        ManagePermissions = 8
+        FullControl = 16
+        RecordQueryExecutionInfo = 32
 
 }
-
 
 
 
