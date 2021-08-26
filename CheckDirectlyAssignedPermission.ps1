@@ -14,6 +14,7 @@ param (
 [string]$PAT 
 
 )
+#Only support below three permissions currently
 [Flags()] enum Git_Repositories_Permission {
 
         # needs the enum value to convert the string to a permission bit.
@@ -126,4 +127,3 @@ $permission = $projectACLs.value | % {
 
 
 echo $permission
-#az devops security permission show --id 33344d9c-fc72-4d6f-aba5-fa317101a7e9 --subject "[SAW]\Readers" --token ff58a5c4-3020-475d-9782-89b5c0a60ead --organization https://dev.azure.com/neilregion/
