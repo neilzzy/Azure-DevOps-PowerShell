@@ -15,6 +15,7 @@ param (
 
 )
 #Only support below three permissions currently
+#will add more later
 [Flags()] enum Git_Repositories_Permission {
 
         # needs the enum value to convert the string to a permission bit.
