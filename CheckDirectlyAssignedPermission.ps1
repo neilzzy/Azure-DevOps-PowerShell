@@ -14,8 +14,10 @@ param (
 [string]$PAT 
 
 )
-#Only support below three permissions currently
+#Only support below permissions currently
 #will add more later
+
+
 [Flags()] enum Git_Repositories_Permission {
 
         # needs the enum value to convert the string to a permission bit.
@@ -54,6 +56,40 @@ param (
         OverrideBuildCheckInValidation = 8192
         AdministerBuildPermissions = 16384
 }
+
+[Flags()] enum AnalyticsViews_Permission {
+
+        Read = 1
+        Edit = 2
+        Delete = 4
+        Execute = 8
+        ManagePermissions = 16
+}
+
+[Flags()] enum CSS_Permission {
+
+        GENERIC_READ = 1
+        GENERIC_WRITE = 2
+        CREATE_CHILDREN = 4
+        DELETE = 8
+        WORK_ITEM_READ = 16
+        WORK_ITEM_WRITE = 32
+        MANAGE_TEST_PLANS = 64
+        MANAGE_TEST_SUITES = 128
+
+}
+
+
+[Flags()] enum DashboardsPrivileges_Permission {
+        Read = 1
+        Create = 2
+        Edit = 4
+        Delete = 8
+        ManagePermissions = 16
+        MaterializeDashboards = 32
+
+}
+
 [Flags()] enum Iteration_Permission {
 
         GenericRead = 1
@@ -61,6 +97,57 @@ param (
         CreateChildren = 4
         Delete = 8
 }
+
+[Flags()] enum MetaTask_Permission {
+
+        Administer = 1
+        Edit = 2
+        Delete = 4
+}
+
+[Flags()] enum Plan_Permission {
+
+        View = 1
+        Edit = 2
+        Delete = 4
+        Manage = 8
+}
+
+[Flags()] enum ReleaseManagement_Permission {
+
+        ViewReleaseDefinition = 1
+        EditReleaseDefinition = 2
+        DeleteReleaseDefinition = 4
+        ManageReleaseApprovers = 8
+        ManageReleases = 16
+        ViewReleases = 32
+        CreateReleases = 64
+        EditReleaseEnvironment = 128
+        DeleteReleaseEnvironment = 256
+        AdministerReleasePermissions = 512
+        DeleteReleases = 1024
+        ManageDeployments = 2048
+        ManageReleaseSettings = 4096
+        ManageTaskHubExtension = 8192
+
+}
+
+[Flags()] enum WorkItemQueryFolders_Permission {
+
+        Read = 1
+        Contribute = 2
+        Delete = 4
+        DELETE = 8
+        ManagePermissions = 16
+        WORK_ITEM_WRITE = 32
+        MANAGE_TEST_PLANS = 64
+        MANAGE_TEST_SUITES = 128
+
+}
+
+
+
+
 
 $UserOrGroupName=$UserOrGroupName.Replace(' ','%20')
 $enumname=$permissionType.Replace(' ','_') + '_Permission'
