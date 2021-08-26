@@ -204,6 +204,8 @@ $permission = $projectACLs.value | % {
 
  }
 
-
-
-echo $permission
+if ($permission){
+echo $permission}
+else { 
+Write-Host "There is no direct permission assignment to" $UserOrGroupName "on" $permissionType "related permissions"
+}
