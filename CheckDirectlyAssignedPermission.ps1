@@ -95,11 +95,6 @@ $RestToGetACL="https://dev.azure.com/$($OrgURL)/_apis/accesscontrollists/$($name
 
 $projectACLs = Invoke-RestMethod -Method Get -Headers @{Authorization = ("Basic {0}" -f $base64AuthInfo)} -Uri $RestToGetACL
 
-
-echo $enumname
-echo $projectACLs
-
-
 $permission = $projectACLs.value | % {
      $project=$_
      #$_.acesDictionary.psobject.properties.value.descriptor
